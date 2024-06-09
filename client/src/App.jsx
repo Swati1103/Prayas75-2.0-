@@ -5,19 +5,19 @@ import { ContactUs } from "./pages/ContactUs";
 import { Donate } from "./pages/Donate";
 import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
-import { Navbar } from "./components/Navbar";
 import { Error } from "./pages/Error";
-import { Footer } from "./components/Footer/Footer";
 import { Logout } from "./pages/Logout";
 import { FAQ } from "./pages/FAQ";
 import { Projects } from "./pages/Projects";
 import { Financials } from "./pages/Financials";
 import { Admin } from "./pages/Admin";
+import { Header } from "./pages/Header";
+import { Footer } from "./pages/Footer";
 
 const App = () => {
   return (
     <Router>
-      <Navbar />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} /> 
@@ -29,10 +29,14 @@ const App = () => {
         <Route path="/logout" element={<Logout />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/financials" element={<Financials />} />
-        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<Error />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="users" element={<AdminUsers />} />
+          <Route path="contacts" element={<AdminContacts />} />
+          <Route path="users/:id/edit" element={<AdminUpdate />} />
+        </Route>
       </Routes>
-      <Footer />
+      <Footer/>
     </Router>
   );
 };

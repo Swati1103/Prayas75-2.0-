@@ -19,7 +19,7 @@ const register = async (req,res) => {
         const userExist = await User.findOne({ email });
 
         if(userExist){
-            return res.status(400).json({msg: "email already exists"});
+            return res.status(400).json({message: "email already exists"});
         }
 
         // hash the password
@@ -48,7 +48,7 @@ const login = async (req,res) => {
         console.log(userExist);
 
         if(!userExist) {
-            return res.status(400).json({message: "Invlid Credentials"});
+            return res.status(400).json({message: "Invalid Credentials"});
         }
 
         //const user = await bcrypt.compare(password, userExist.password);

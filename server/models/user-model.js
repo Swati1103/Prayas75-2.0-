@@ -23,6 +23,14 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    isBlue: {
+        type: Boolean,
+        default: false,
+    },
+    isGold: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 //? secure the password with the bcrypt
